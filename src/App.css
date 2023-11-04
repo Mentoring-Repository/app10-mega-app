@@ -1,0 +1,12 @@
+.homepage {
+    height: 100vh;
+}
+
+.homepage ul {
+    list-style: none;
+}
+
+.homepage ul li a {
+    text-decoration: none;
+    color: black;
+}
