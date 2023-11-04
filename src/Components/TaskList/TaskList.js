@@ -1,8 +1,9 @@
-const TaskList = ({ tasks, setTasks }) => {
-  const completeTask = (id) => {
-    setTasks(tasks.filter((task) => task.id !== id));
-   
-  };
+import { useSelector, useDispatch } from 'react-redux'
+import { completeTask } from '../../features/taskSlice';
+
+const TaskList = () => {
+  const tasks = useSelector((state) => state.tasks.value)
+  const dispatch = useDispatch()
 
   return (
     <div className="d-flex ">
@@ -12,7 +13,7 @@ const TaskList = ({ tasks, setTasks }) => {
           <p className="my-3">{task.depcricion}</p>
           <button
             className="btn btn-success my-3"
-            onClick={() => completeTask(task.id)}
+            onClick={() => dispatch(completeTask(task.id))}
           >
             Complete task
           </button>

@@ -6,7 +6,7 @@ const NavBar = ({links}) => {
             <nav>
                 <ul className='d-flex justify-content-around align-items-center p-0 m-0 gap-4'>
                     {links.map((link) => (
-                        <li>
+                        <li key={link.path}>
                             <a href={link.path}>{link.text}</a>
                         </li>
                     ))}
