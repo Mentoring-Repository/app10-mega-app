@@ -4,7 +4,7 @@ const Homepage = ({links}) => {
             <h3 className="w-50 text-center mb-4">Hello user, welcome to our Mega App. Below you can find a list of apps we developed:</h3>
             <ul>
                 {links.map((link) => (
-                    <li className="mb-2"><a href={link.path}>{link.text}</a></li>
+                    <li key={link.path} className="mb-2"><a href={link.path}>{link.text}</a></li>
                 ))}
             </ul>
         </main>

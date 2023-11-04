@@ -10,3 +10,9 @@ header nav ul li a {
     text-decoration: none;
     color: black
 }
+
+.link-logout {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+}

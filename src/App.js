@@ -1,9 +1,11 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import NavBar from "./Components/NavBar/NavBar";
 import Homepage from "./Pages/Homepage";
 import Exchange from "./Pages/Exchange";
 import TaskManager from "./Pages/TaskManager";
+import Login from "./Pages/Login";
+import AuthLayer from "./Pages/AuthLayer";
+import PageLayout from "./Pages/PageLayout";
 const links = [
 	{
 		path: "/exchange",
@@ -13,20 +15,22 @@ const links = [
 		path: "/task-manager",
 		text: "Task Manager",
 	},
-	
+
 ];
 
 const router = createBrowserRouter(
-	[{ path: "/", element: <Homepage links={links} /> },
-	 {path: "/exchange", element: <Exchange/>},
-	 {path:"/task-manager", element:<TaskManager/>}
+	[{ path: "/", element: <PageLayout links={links}><Homepage links={links} /></PageLayout> },
+	 {path: "/exchange", element: <PageLayout links={links}><Exchange/></PageLayout>},
+	 {path:"/task-manager", element:<PageLayout links={links}><TaskManager/></PageLayout>},
+	 {path:"/login", element:<Login />}
 	]);
 
 const App = () => {
 	return (
 		<>
-			<NavBar links={links}/>
-			<RouterProvider router={router} />
+			<AuthLayer>
+				<RouterProvider router={router} />
+			</AuthLayer>
 		</>
 	);
 };
